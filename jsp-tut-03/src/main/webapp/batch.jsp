@@ -46,7 +46,7 @@
 	
 	<div class="container">
 		<div class="row mt-2">
-			<h3>Batch List</h3>
+			<h3>Batch<span class="text-danger">List</span></h3>
 		</div>
 		<hr />
 		<div class="row">

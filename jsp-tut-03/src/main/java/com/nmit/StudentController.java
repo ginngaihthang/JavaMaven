@@ -33,7 +33,7 @@ public class StudentController extends HttpServlet{
 		if(list == null) 
 			list = new ArrayList<Batch>();
 		
-		list.add(new Batch("batch 1", LocalDate.parse("2022-07-12")));
+		list.add(new Batch("Batch 1", LocalDate.parse("2022-07-12")));
 		list.add(new Batch("Batch 2" , LocalDate.parse("2022-08-23")));
 		context.setAttribute("batches", list);
 	}

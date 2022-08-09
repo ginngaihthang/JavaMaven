@@ -45,7 +45,7 @@
 	<jsp:include page="common/nav.jsp"></jsp:include>
 	<div class="container">
 		<div class="row mt-2">
-			<h3 class="col-10">Add New Student</h3>
+			<h3 class="col-10">Add New <span class="text-danger">Student</span></h3>
 		</div>
 		<hr />
 		<form action="add-student" class=" col-5" method="post">

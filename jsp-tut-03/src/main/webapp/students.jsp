@@ -9,14 +9,19 @@
 <meta charset="ISO-8859-1">
 <title><%= request.getAttribute("title") %></title>
 <jsp:include page="common/res.jsp"></jsp:include>
+	<style>
+		body{
+			background-color: #ebecf0;
+		}
+	</style>
 </head>
 <body>
 	<!-- nav -->
 	<jsp:include page="common/nav.jsp"></jsp:include>
 	<div class="container">
 		<div class="row mt-3">
-			<h3 class="col-10">Student List</h3>
-			<a href="student-add" class="btn btn-primary col mb-3"><i class="fa-solid fa-plus fa-lg"></i>Add Student</a>
+			<h3 class="col-10">Student<span class="text-danger">List</span></h3>
+			<a href="student-add" class="btn btn-danger col mb-3"><i class="fa-solid fa-plus fa-lg"></i>Add Student</a>
 			<hr />
 			<table class="table table-success table-striped">
 				<thead>

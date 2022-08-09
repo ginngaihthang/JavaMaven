@@ -6,10 +6,10 @@
           <a class="nav-link active" aria-current="page" href="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="batch">Batch</a>
+          <a class="nav-link active" href="batch">Batch</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="students">Student</a>
+          <a class="nav-link active" href="students">Student</a>
         </li>
       </ul>
     </div>
