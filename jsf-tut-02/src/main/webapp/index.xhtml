@@ -1,0 +1,52 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+<h:head>
+	<title>List</title>
+	<h:outputStylesheet library="webjars" name="bootstrap/5.1.3/css/bootstrap.min.css"></h:outputStylesheet>
+	<h:outputScript library="webjars" name="bootstrap/5.1.3/js/bootstrap.min.js"></h:outputScript>
+	<h:outputScript library="webjars" name="jquery/3.6.0/jquery.min.jsp"></h:outputScript>
+</h:head> 
+<body> 
+	<div class="container">
+		<div class="row mt-3">
+			<h2 class="col-11">Employee List</h2>
+			<h:link outcome="/register" value="Add" styleClass="btn btn-info col"/>
+
+		</div>
+		<h:dataTable styleClass="table" binding="#{tbl}" value="#{empList}" var="emp">
+			<h:column>
+				<f:facet name="header" >ID</f:facet>
+				#{tbl.rowIndex + 1}
+			</h:column>
+			<h:column>
+				<f:facet name="header" >Name</f:facet>
+				#{emp.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header" >Email</f:facet>
+				#{emp.email}
+			</h:column>
+			<h:column>
+				<f:facet name="header" >Gender</f:facet>
+				#{emp.gender}
+			</h:column>
+			<h:column>
+				<f:facet name="header" >City</f:facet>
+				#{emp.city}
+			</h:column>
+			<h:column>
+				<f:facet name="header" >Position</f:facet>
+				#{emp.position}
+			</h:column>
+			<h:column>
+				<f:facet name="header" >Active</f:facet>
+				#{emp.active ? 'yes' : 'no'}
+			</h:column>
+		</h:dataTable>
+	</div>
+</body> 
+</html>

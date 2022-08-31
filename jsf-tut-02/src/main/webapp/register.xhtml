@@ -1,0 +1,103 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"> 
+   
+
+<h:head>
+	<title>Register</title>
+	<h:outputStylesheet library="webjars" name="bootstrap/5.1.3/css/bootstrap.min.css"></h:outputStylesheet>
+	<h:outputScript library="webjars" name="bootstrap/5.1.3/js/bootstrap.min.js"></h:outputScript>
+	<h:outputScript library="webjars" name="jquery/3.6.0/jquery.min.jsp"></h:outputScript>
+	
+</h:head> 
+
+<body> 
+	<div class="container">
+		<h2>Register</h2>
+		<h:form styleClass="form col-6 mt-3">
+			<div class="mb-3">
+				<label for="" class="form-label">Name</label>
+				<h:inputText value="#{employeeBean.employee.name}"  styleClass="form-control" p:required="required" p:placeholder="Enter Name"/>
+			</div>
+			<div class="mb-3">
+				<label for="" class="form-label">Email</label>
+				<h:inputText value="#{employeeBean.employee.email}" p:type="email" styleClass="form-control" p:required="required" p:placeholder="Enter Email"/>
+			</div>
+			<div class="mb-3">
+				<label for="" class="form-label">Salary</label>
+				<h:inputText value="#{employeeBean.employee.salary}" p:type="number" styleClass="form-control"/>
+			</div>
+			<div class="mb-3">
+				<label for="" class="form-label">City</label>
+				<h:selectOneMenu value="#{employeeBean.employee.city}"  styleClass="form-select">
+					<f:selectItem itemValue="yangon" itemLabel="Yangon"/>
+					<f:selectItem itemValue="mandalay" itemLabel="Mandalay"/>
+					
+				</h:selectOneMenu>
+			</div>
+			<div class="mb-3">
+				<label for="" class="form-label">Position</label>
+				<h:selectOneMenu value="#{employeeBean.employee.position}"  styleClass="form-select">
+					<f:selectItems value="#{employeeBean.positions}" var="pos" itemValue="#{pos}" itemLabel="#{pos}"/>	
+				</h:selectOneMenu>
+			</div>
+			<div class="mb-3 row">
+				<label for="" class="form-label col-2">Gender</label>
+				<div class="col">
+					<f:metadata>
+							<f:viewParam name="rad_gen" value="#{employeeBean.employee.gender}"></f:viewParam>
+					</f:metadata>
+					<div class="form-cleck form-check-inline">
+						<input type="radio" p:name="rad_gen"  class="form-check-input" jsf:id="rad_male" value="male"/>
+						<h:outputLabel value="Male" for="rad_male" styuleClass="form-check-label"/>
+					</div>
+					<div class="form-cleck form-check-inline">
+						<input type="radio" p:name="rad_gen"  class="form-check-input" jsf:id="rad_female" value="female"/>
+						<h:outputLabel value="Female" for="rad_female" styuleClass="form-check-label"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="" class="form-label">Other Information</label>
+				<h:inputTextarea value="#{employeeBean.employee.otherInfo}" styleClass="form-control" />
+			</div>
+			<div class="mb-3">
+				<div class="form-check form-check-inline">
+					<h:selectBooleanCheckbox value="#{employeeBean.employee.active}" styleClass="form-check-input" id="chk_active" />
+					<h:outputLabel value="Is Active" for="chk_active" styleClass="form-check-label"/>
+					
+				</div>
+			</div>
+			<div class="mb-3 row">
+				<h:outputLabel value="Skillsets" styleClass="form-label col-2"/>
+				<div class="col">
+					<f:metadata >
+						<f:viewParam name="chk" value="#{employeeBean.employee.skillsets}"></f:viewParam>
+					</f:metadata>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" p:name="chk" jsf:id="chk_java" value="java" class="form-check-input" />
+						<h:outputLabel value="Java" for="chk_java" styuleClass="form-check-label"/>	
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" p:name="chk" jsf:id="chk_php" value="php" class="form-check-input" />
+						<h:outputLabel value="Php" for="chk_php" styuleClass="form-check-label"/>	
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" p:name="chk" jsf:id="chk_js" value="javascript" class="form-check-input" />
+						<h:outputLabel value="Javascript" for="chk_js" styuleClass="form-check-label"/>	
+					</div>
+				</div>
+				
+			</div>
+			<div class="mb-3">
+				<h:commandButton action="#{employeeBean.save}" value="Register" styleClass="btn btn-success"/>
+			</div>
+		</h:form>
+	</div>
+</body> 
+</html>
