@@ -1,0 +1,52 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+
+	<ui:composition template="/main-template.xhtml">
+		<ui:define name="title">Bootcamper|Add</ui:define>
+		<ui:define name="sub-title">#{bootcamperBean.bootcamper.id == 0 ? 'Add' : 'Edit'} Bootcamper</ui:define>
+		<ui:define name="add-link">
+			<h:link outcome="/bootcamper-list" value="Back" styleClass="btn btn-info col-1"/>
+		</ui:define>
+		<ui:define name="contents">
+			<h:form styleClass="form col-5 justify-content-center">
+				<div class="mb-3">
+					<label for="" class="form-label">Level</label>
+					<h:selectOneMenu id="lvlName" value="#{bootcamperBean.chosen_level_id}" styleClass="form-control">
+						<f:selectItems value="#{levelBean.levels}" var="lvl" itemLabel="#{lvl.name}" itemValue="#{lvl.id}"></f:selectItems>
+						<f:ajax listener="#{bootcamperBean.retrieveBatchList}" execute="@this" render="batch-id"></f:ajax>
+					</h:selectOneMenu>
+				</div>
+				<div class="mb-3">
+					<label for="" class="form-label">Batch</label>
+					<h:selectOneMenu id="batch-id" value="#{bootcamperBean.bootcamper.batch}" styleClass="form-control">
+						<f:selectItems  value="#{bootcamperBean.batchList}" var="batch" itemLabel="#{batch.name}" itemValue="#{batch}"></f:selectItems>
+						<f:converter binding="#{batchConverter}"/>
+					</h:selectOneMenu>
+					<h:message for="batch-id" styleClass="text-danger small"></h:message>
+				</div>
+				<div class="mb-3">
+					<label for="" class="form-label">Name</label>
+					<h:inputText id="name" value="#{bootcamperBean.bootcamper.name}" styleClass="form-control"/>
+					<h:message for="name" styleClass="text-danger small"/>
+				</div>
+				<div class="mb-3">
+					<label for="" class="form-label">Email</label>
+					<h:inputText id="email" value="#{bootcamperBean.bootcamper.email}" styleClass="form-control"/>
+					<h:message for="email" styleClass="text-danger small"/>
+				</div>
+				<div class="mb-3">
+					<label for="" class="form-label">Phone</label>
+					<h:inputText id="phone" value="#{bootcamperBean.bootcamper.phone}" styleClass="form-control"/>
+					<h:message for="phone" styleClass="text-danger small"/>
+				</div>
+				
+				<h:commandButton action="#{bootcamperBean.save}" value="Save" styleClass="btn btn-info"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+ 
+</html>

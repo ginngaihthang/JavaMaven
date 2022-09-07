@@ -1,0 +1,36 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+
+	<ui:composition template="/main-template.xhtml">
+		<ui:define name="title">Level|Add</ui:define>
+		<ui:define name="sub-title">#{levelBean.level.id == 0 ? 'Add' : 'Edit'} Level</ui:define>
+		<ui:define name="add-link">
+			<h:link outcome="/index" value="Back" styleClass="btn btn-info col-1"/>
+		</ui:define>
+		<ui:define name="contents">
+			<h:form styleClass="form col-5  align-middle">
+				<div class="mb-3">
+					<label for="" class="form-label">Name</label>
+					<h:inputText id="name" value="#{levelBean.level.name}" styleClass="form-control"/>
+					<h:message for="name" styleClass="text-danger small"/>
+				</div>
+				<div class="mb-3">
+					<label for="" class="form-label">Fees</label>
+					<h:inputText id="fees" value="#{levelBean.level.fees}" styleClass="form-control"/>
+					<h:message for="fees" styleClass="text-danger small"/>
+				</div>
+				<div class="mb-3">
+					<label for="" class="form-label">Duration</label>
+					<h:inputText id="duration" value="#{levelBean.level.duration}" styleClass="form-control"/>
+					<h:message for="duration" styleClass="text-danger small"></h:message>
+				</div>
+				<h:commandButton action="#{levelBean.save}" value="Save" styleClass="btn btn-info"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+ 
+</html>

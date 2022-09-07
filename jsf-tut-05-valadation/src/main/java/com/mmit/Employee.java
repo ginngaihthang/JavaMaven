@@ -16,7 +16,7 @@ public class Employee {
 	@Min(value = 10)
 	@Max(60)
 	private int age;
-	@Min(value= 509000, message = "Salary must be at least 50000")
+	@Min(value= 500000, message = "Salary must be at least 50000")
 	private int salary;
 	public String getName() {
 		return name;

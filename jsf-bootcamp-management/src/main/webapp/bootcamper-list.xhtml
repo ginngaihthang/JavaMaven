@@ -1,0 +1,58 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+
+	<ui:composition template="/main-template.xhtml">
+		<ui:define name="title">Bootcamper|Home</ui:define>
+		<ui:define name="sub-title">Bootcamper List</ui:define>
+		<ui:define name="add-link">
+			<h:link outcome="/bootcamper-add" value="Add" styleClass="btn btn-info col-1"/>
+		</ui:define>
+		<ui:define name="contents" >
+			<h:dataTable value="#{bootcamperBean.bootcampers}" var="boot" styleClass="table" binding="#{tbl}">
+				<h:column>
+					<f:facet name="header" > NO</f:facet>
+					#{tbl.rowIndex + 1}
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Name</f:facet>
+					#{boot.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Email</f:facet>
+					#{boot.email}
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Phone</f:facet>
+					#{boot.phone}
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Register Date</f:facet>
+					#{boot.batch.level.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Batch Name</f:facet>
+					#{boot.batch.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Register Date</f:facet>
+					<h:outputText value="#{boot.registerDate}">
+						<f:convertDateTime type="localDate" pattern="MMM dd, yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header" >Action</f:facet>
+					<h:form>
+						<h:link outcome="/bootcamper-add" styleClass="btn btn-primary btn-sm me-3" value="Edit">
+							<f:param name="bootId" value="#{boot.id}"></f:param>
+						</h:link> 
+							<h:commandLink action="#{bootcamperBean.delete(boot.id)}" value="Remove" styleClass="btn btn-danger btn-sm"/>
+					</h:form>
+				</h:column>
+			</h:dataTable>
+		</ui:define>
+	</ui:composition>
+</html>
