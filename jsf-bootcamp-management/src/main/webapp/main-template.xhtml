@@ -47,16 +47,16 @@
 			<hr />
 			<ul class="nav flex-column link">
 			  <li class="nav-item">
-			    <h:link outcome="/index" styleClass="nav-link #{view.viewId eq '/index.xhtml' or view.viewId eq 'level-add.xhtml' ? 'active' : ''}" value="level"/>
+			    <h:link outcome="/index" styleClass="nav-link #{view.viewId eq '/index.xhtml' or view.viewId eq '/level-add.xhtml' ? 'active' : ''}" value="level"/>
 			  </li>
 			  <li class="nav-item">
-			    <h:link outcome="/batch-list" styleClass="nav-link #{view.viewId eq '/batch-list.xhtml' or view.viewId eq 'batch-add.xhtml' ? 'active' : ''}" value="Batch"/>
+			    <h:link outcome="/batch-list" styleClass="nav-link #{view.viewId eq '/batch-list.xhtml' or view.viewId eq '/batch-add.xhtml' ? 'active' : ''}" value="Batch"/>
 			  </li>
 			  <li class="nav-item">
-			    <h:link outcome="/course-list" styleClass="nav-link  #{view.viewId eq '/course-list.xhtml' or view.viewId eq 'course-add.xhtml' ? 'active' : ''}" value="course"/>
+			    <h:link outcome="/course-list" styleClass="nav-link  #{view.viewId eq '/course-list.xhtml' or view.viewId eq '/course-add.xhtml' ? 'active' : ''}" value="course"/>
 			  </li>
 			   <li class="nav-item">
-			    <h:link outcome="/bootcamper-list" styleClass="nav-link #{view.viewId eq '/bootcamper-list.xhtml' or view.viewId eq 'bootcamper-add.xhtml' ? 'active' : ''}" value="bootcamper"/>
+			    <h:link outcome="/bootcamper-list" styleClass="nav-link #{view.viewId eq '/bootcamper-list.xhtml' or view.viewId eq '/bootcamper-add.xhtml' ? 'active' : ''}" value="bootcamper"/>
 			  </li>
 			</ul>
 		</div>
